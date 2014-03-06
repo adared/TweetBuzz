@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400' rel='stylesheet' type='text/css'>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="static/css/normalize.min.css">
+        <link rel="stylesheet" href="static/css/main.css">
+
+        <script src="static/js/vendor/modernizr-2.6.2.min.js"></script>
+
+        <script src="static/js/main.js"></script>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="static/js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+
+        <script src="static/js/main.js"></script>
+    </head>
+    <body>
+
+        <header>
+            <h1><span>Tweet</span>Buzz</h1>
+            <h3>The twitter front page</h3>
+            <img class="logo" src="static/img/tweetbuzz.png" alt="tweet-buzz-image" />
+        </header>
+
+        <article class="wrapper">
+
+            {% for trend, tweets in trends.iteritems() %}
+                <section class="trend">
+                    <div class="trend-head clearfix">
+                        <p class="trend-name">{{trend}}</p>
+                        <p class="see-all">See All</p>
+                    </div>
+                    <div class="container">
+                        <div class="trend-tweets">
+                        {% for tweet in tweets %}
+                            <div class="tweet">
+                                <p class="tweeter">{{tweet.name}}</p><p class="text">{{tweet.tweet}}</p>
+                            </div>
+                        {% endfor %}
+                        </div>
+                    </div>
+                </section>
+            {% endfor %}
+    </body>
+</html>
